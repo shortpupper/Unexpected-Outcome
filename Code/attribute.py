@@ -16,11 +16,12 @@ class GameAttribute:
     def GetId(self) -> str:
         return self.GameId
     
-    def GetName(self) -> str:
+    def GetName(self, CanHaveSpace: bool = True) -> str:
         """
         returns the lang name so if you need a diffrent lang you can
         """
-        return self.langHanddler.getNameUsingId(self.GameId)
+        name = self.langHanddler.getNameUsingId(self.GameId)
+        return name if CanHaveSpace else name.replace(" ", "_")
 
 
 
