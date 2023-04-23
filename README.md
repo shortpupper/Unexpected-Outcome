@@ -1,4 +1,4 @@
-# KnightLife
+# Unexpected Outcome
   ## Background and how I want things to go.
    I'm planning this as a game that includes a dnd kind of style.
    This project may be stopped at any time.
