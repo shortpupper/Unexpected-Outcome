@@ -6,7 +6,7 @@
    and have this as a rpg kind of game with a open world.
    
   
-## What is KnightLife
+## What is Unexpected Outcome
   1. It's a command line project.
 
 ## Plans
