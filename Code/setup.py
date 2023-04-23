@@ -1,19 +1,17 @@
 import time
 import readSettings, langHanddler, attribute, Entity
 
+produntionBuild = True if __name__ != "__main__" or True else False
 try:
     reader = readSettings.Reader()
 except:
     print("Can't find file install mode.\n\n")
     # setup the files
-    print("example: `F:/.dev/python/projects/Unexpected-Outcome/Unexpected-Outcome/`")
-    imp1 = input("Manual Location Save Dir (yes/N)> ")
-    if imp1.lower() in ["yes", "y", "yas"]:
-        imp1 = input("Location> ")
-        imp1 = imp1.replace("\\", "/")
-        if imp1[-1] != "/": imp1 += "/"
+    print("Will break/won't load if you don't make the game data")
+    imp1 = input("Make Game (Y/no)> ")
+    if imp1.lower() != "no":
         try:
-            Dir = imp1
+            Dir = "C:/UO"
             with open(Dir + "/settings.toml", "w") as f:
                 tomlFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{Dir}/lang/'"""
                 f.write(tomlFile)

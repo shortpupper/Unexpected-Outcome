@@ -8,8 +8,8 @@ class Reader:
     """
     a reader class to read toml files makes it make sentce to me
     """
-    def __init__(self) -> None:
-        with open("F:/.dev/python/projects/Unexpected-Outcome/Unexpected-Outcome/Code/settings.toml", "r") as f: 
+    def __init__(self, public: bool = True) -> None:
+        with open("F:/.dev/python/projects/Unexpected-Outcome/Unexpected-Outcome/Code/settings.toml" if not public else "C:/UO/settings.toml", "r") as f: 
             self.settings = toml.load(f)
     
     def getSetting(self, settingName: str):

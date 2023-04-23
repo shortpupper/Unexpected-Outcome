@@ -14,7 +14,8 @@ class Entity:
     
     def add_attribute(self, NewAttribute: attribute.GameAttribute) -> None:
         """
-        Like most things say it the Entity gains a new attribute
+        Like most things say it the Entity gains a new attribute.\n
+        this is custom for like mods or if i dont want to add thing or im testing.
         """
         self.__setattr__(NewAttribute.GetName(CanHaveSpace=False), NewAttribute)
     
