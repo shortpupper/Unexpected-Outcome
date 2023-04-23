@@ -32,6 +32,9 @@ class Luck(GameAttribute):
         self.NormalLuck   = NormalLuck
         self.TrueLuck     = TrueLuck
     
+    def __str__(self) -> str:
+        return self.GameId
+    
     def RandomEventWithLuck(self, whatNumber: int, OutOfWhatNumber: int, IsTrueLuck=False) -> bool:
         """
         makes the 1/800 change with a normal luck of 1.5 very Low and 0.5.\n
@@ -58,6 +61,9 @@ class Health(GameAttribute):
         self.HealthPoints    = CurrentHealthPoints if CurrentHealthPoints != None else MaxHealthPoints
         self.IsDead          = False
         self.IsFullDead      = False
+    
+    def __str__(self) -> str:
+        return self.GameId
 
     def Damage(self, amount: float) -> None:
         self.HealthPoints -= amount
@@ -78,6 +84,7 @@ if __name__ == '__main__':
     luck = Luck(NormalLuck=1, TrueLuck=1)
     print(luck.RandomEventWithLuck(1, 20))
     print(luck.RandomEventWithLuck(1, 20, IsTrueLuck=True))
+    print(str(luck))
 
     print("Health Stuff")
     health = Health(MaxHealthPoints=100, CurrentHealthPoints=50)

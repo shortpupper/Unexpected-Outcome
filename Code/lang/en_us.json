@@ -1,4 +1,5 @@
 {
-    "attribute.luck":   "Luck",
-    "attribute.health": "Health"
+    "attribute.luck": "Luck",
+    "attribute.health": "Health",
+    "entity.player.name.default": "Matthew"
 }
