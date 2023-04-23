@@ -1,7 +1,39 @@
+import time
 import readSettings, langHanddler, attribute, Entity
 
+try:
+    reader = readSettings.Reader()
+except:
+    print("Can't find file install mode.\n\n")
+    # setup the files
+    print("example: `F:/.dev/python/projects/Unexpected-Outcome/Unexpected-Outcome/`")
+    imp1 = input("Manual Location Save Dir (yes/N)> ")
+    if imp1.lower() in ["yes", "y", "yas"]:
+        imp1 = input("Location> ")
+        imp1 = imp1.replace("\\", "/")
+        if imp1[-1] != "/": imp1 += "/"
+        try:
+            Dir = imp1
+            with open(Dir + "/settings.toml", "w") as f:
+                tomlFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{Dir}/lang/'"""
+                f.write(tomlFile)
+            # with open(Dir + "/settings.toml", "w") as f:
+            #     jsonFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{Dir}/lang/'"""
+            #     f.write(jsonFile)
+        except:
+            print("FAILED")
+            print("Exiting")
+            time.sleep(3)
+            exit()
+
+
+
 reader = readSettings.Reader()
-langer = langHanddler.LangHanddler(reader=reader)
+
+try:
+    langer = langHanddler.LangHanddler(reader=reader)
+except:
+    print("langer [FAILED]")
 
 player = Entity.Entity("id_A")
 

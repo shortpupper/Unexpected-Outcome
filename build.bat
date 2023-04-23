@@ -1,0 +1,1 @@
+python -m PyInstaller "F:\.dev\python\projects\Unexpected-Outcome\Unexpected-Outcome\setup.spec"
