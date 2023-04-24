@@ -11,15 +11,15 @@ except:
     imp1 = input("Make Game (Y/no)> ")
     if imp1.lower() != "no":
         try:
-            try:
-                os.mkdir("C:/UO")
-            except:
-                print("Failed to make the UO dir")
-            
-            try:
-                os.mkdir("C:/UO/lang")
-            except:
-                print("failed to make the lang dir")
+            os.mkdir("C:/UO")
+        except:
+            print("Failed to make the UO dir")
+        
+        try:
+            os.mkdir("C:/UO/lang")
+        except:
+            print("failed to make the lang dir")
+        try:
             input(">>> contiune <<<")
             Dir = "C:/UO"
             with open(Dir + "/settings.toml", "w") as f:
@@ -31,6 +31,8 @@ except:
         except:
             print("FAILED")
             print("Exiting")
+            input(">>> Contiune <<<")
+            
             time.sleep(3)
             input("END PROGRAM")
             exit()
