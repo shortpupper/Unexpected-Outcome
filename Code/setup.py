@@ -15,9 +15,13 @@ except:
             with open(Dir + "/settings.toml", "w") as f:
                 tomlFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{Dir}/lang/'"""
                 f.write(tomlFile)
-            # with open(Dir + "/settings.toml", "w") as f:
-            #     jsonFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{Dir}/lang/'"""
-            #     f.write(jsonFile)
+            with open(Dir + "/lang/en_us.json", "w") as f:
+                jsonFile = """{
+    "attribute.luck": "Luck",
+    "attribute.health": "Health",
+    "entity.player.name.default": "Matthew"
+}"""
+                f.write(jsonFile)
         except:
             print("FAILED")
             print("Exiting")
