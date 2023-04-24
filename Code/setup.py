@@ -20,6 +20,7 @@ except:
                 os.mkdir("C:/UO/lang")
             except:
                 print("failed to make the lang dir")
+            input(">>> contiune <<<")
             Dir = "C:/UO"
             with open(Dir + "/settings.toml", "w") as f:
                 tomlFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{Dir}/lang/'"""
