@@ -30,7 +30,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Make Exe
       run: |
-        python -m PyInstaller "./Code/setup.py" -F
+        python -m PyInstaller "./Code/setup.py" -F -p "./Code"
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
       with:
