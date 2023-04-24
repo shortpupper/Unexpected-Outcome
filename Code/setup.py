@@ -1,4 +1,4 @@
-import time
+import time, os
 import readSettings, langHanddler, attribute, Entity
 
 produntionBuild = True if __name__ != "__main__" or True else False
@@ -11,16 +11,21 @@ except:
     imp1 = input("Make Game (Y/no)> ")
     if imp1.lower() != "no":
         try:
+            try:
+                os.mkdir("C:/UO")
+            except:
+                print("Failed to make the UO dir")
+            
+            try:
+                os.mkdir("C:/UO/lang")
+            except:
+                print("failed to make the lang dir")
             Dir = "C:/UO"
             with open(Dir + "/settings.toml", "w") as f:
                 tomlFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{Dir}/lang/'"""
                 f.write(tomlFile)
             with open(Dir + "/lang/en_us.json", "w") as f:
-                jsonFile = """{
-    "attribute.luck": "Luck",
-    "attribute.health": "Health",
-    "entity.player.name.default": "Matthew"
-}"""
+                jsonFile = """{\n\t"attribute.luck": "Luck",\n\t"attribute.health": "Health",\n\t"entity.player.name.default": "Matthew"\n}"""
                 f.write(jsonFile)
         except:
             print("FAILED")
