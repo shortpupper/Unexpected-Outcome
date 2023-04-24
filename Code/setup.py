@@ -5,21 +5,20 @@ produntionBuild = True if __name__ != "__main__" or True else False
 try:
     reader = readSettings.Reader()
 except:
-    print("Can't find file install mode.\n\n")
+    print("Couldn't find file, install mode.\n\n")
     # setup the files
     print("Will break/won't load if you don't make the game data")
     imp1 = input("Make Game (Y/no)> ")
     if imp1.lower() != "no":
         try:
-            try:
-                os.mkdir("C:/UO")
-            except:
-                print("Failed to make the UO dir")
-            
-            try:
-                os.mkdir("C:/UO/lang")
-            except:
-                print("failed to make the lang dir")
+            os.mkdir("C:/UO")
+        except:
+            print("Failed to make the UO dir")
+        try:
+            os.mkdir("C:/UO/lang")
+        except:
+            print("failed to make the lang dir")
+        try:
             Dir = "C:/UO"
             with open(Dir + "/settings.toml", "w") as f:
                 tomlFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{Dir}/lang/'"""
@@ -31,7 +30,6 @@ except:
             print("FAILED")
             print("Exiting")
             time.sleep(3)
-            input("END PROGRAM")
             exit()
 
 

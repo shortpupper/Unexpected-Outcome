@@ -4,6 +4,6 @@ testString = "yes it is test"
 
 # lang so you could make you're own if you wanted
 lang = "en_us"
-langLocation = "F:/.dev/python/projects/Unexpected-Outcome/Unexpected-Outcome/Code/lang/"
+langLocation = "C:/UO/lang/" #F:/.dev/python/projects/Unexpected-Outcome/Unexpected-Outcome/Code/lang/
 
 
