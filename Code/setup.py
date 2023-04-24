@@ -31,6 +31,7 @@ except:
             print("FAILED")
             print("Exiting")
             time.sleep(3)
+            input("END PROGRAM")
             exit()
 
 
