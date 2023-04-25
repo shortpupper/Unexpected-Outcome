@@ -4,7 +4,7 @@
 produntionBuild     = True if __name__ != "__main__" or True else False
 
 
-gameDataZipURL      = "https://github.com/shortpupper/Unexpected-Outcome/raw/main-patch-home-1/gameData.zip"
+gameDataZipURL      = "https://github.com/shortpupper/Unexpected-Outcome/raw/main/gameData.zip"
 
 
 
