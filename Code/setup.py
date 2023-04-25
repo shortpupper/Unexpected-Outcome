@@ -1,14 +1,20 @@
 import time, os
-import readSettings, langHanddler, attribute, Entity
 
 
-gameDataPath = "C:/UO/gameData"
 
 
 ### file setup
 produntionBuild = True if __name__ != "__main__" or True else False
+
+
+gameDataPath = "C:/UO/gameData"# if not produntionBuild else r"F:\.dev\python\projects\Unexpected-Outcome\Unexpected-Outcome/gameData"
+
+NewFile = True and produntionBuild
+
 try:
+    import readSettings, langHanddler, attribute, Entity
     reader = readSettings.Reader()
+    # if NewFile: raise Exception("makeing new")
 except:
     print("Couldn't find file, install mode.\n\n")
     # setup the files
@@ -30,14 +36,18 @@ except:
             with open(f"{gameDataPath}/settings.toml", "w") as f:
                 tomlFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{gameDataPath}/lang/'"""
                 f.write(tomlFile)
+                print("made settings")
             with open(f"{gameDataPath}/lang/en_us.json", "w") as f:
                 jsonFile = """{\n\t"attribute.luck": "Luck",\n\t"attribute.health": "Health",\n\t"entity.player.name.default": "Matthew"\n}"""
                 f.write(jsonFile)
+                print("made lang")
+            import readSettings, langHanddler, attribute, Entity
         except:
             print("FAILED")
             print("Exiting")
             time.sleep(3)
             exit()
+    
 
 
 
@@ -64,7 +74,7 @@ player.add_attribute(attribute.Luck(1, 1))
 
 # gmae loop
 
-gameTest = True
+gameTest = False
 
 while gameTest:
     print("\n\n0) Exit/Quit, 1) self Harm, 2) check Health, 3) roll die, 4) set luck")
@@ -108,3 +118,12 @@ while gameTest:
             print("Are ya sure ya not speakin latin, eh?")
     else:
         print("Are you speaking frence??")
+
+
+
+if __name__ == '__main__':
+    print('<<<----... Running setup.py Test ...---->>>')
+    
+    print(str(__dict__))
+
+    print('<<<----...   End setup.py Test   ...---->>>')

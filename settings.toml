@@ -1,0 +1,7 @@
+# this is more for testting you dont need to change this
+testString = "yes it is test"
+# save = ""
+
+# lang so you could make you're own if you wanted
+lang = "en_us"
+langLocation = 'F:\.dev\python\projects\Unexpected-Outcome\Unexpected-Outcome/lang/'
