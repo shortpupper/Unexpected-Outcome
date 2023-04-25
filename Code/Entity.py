@@ -2,7 +2,7 @@ import attribute
 
 class Entity:
     """
-    yeas
+    this is the base plate for the entitys
     """
     def __init__(self, NameID: str, Name: str = "Mattew") -> None:
         self.NameID    = NameID

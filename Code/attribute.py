@@ -5,7 +5,7 @@ class GameAttribute:
     Attribute template for things will be used in mods when I Get that far
     Right now not much is made, Just skeletons
     """
-    def __init__(self, GameID: str, *args) -> None:
+    def __init__(self, GameID: str, Reader: readSettings.Reader(), Langer: langHanddler.LangHanddler(), *args) -> None:
         self.GameId = GameID
 
         self.Args = args
