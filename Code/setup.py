@@ -7,13 +7,15 @@ import time, os
 produntionBuild = True if __name__ != "__main__" or True else False
 
 
-gameDataPath = "C:/UO/gameData"# if not produntionBuild else r"F:\.dev\python\projects\Unexpected-Outcome\Unexpected-Outcome/gameData"
+defaultPath = "C:/UO/gameData" 
 
-NewFile = True and produntionBuild
 
+
+# this is now fed cus i need it to install as a package type thing
 try:
     import readSettings, langHanddler, attribute, Entity
-    reader = readSettings.Reader()
+    reader      = readSettings.Reader()
+    defaultPath = reader.getSetting("gameDataPath")
     # if NewFile: raise Exception("makeing new")
 except:
     print("Couldn't find file, install mode.\n\n")
@@ -22,26 +24,26 @@ except:
     imp1 = input("Make Game (Y/no)> ")
     if imp1.lower() != "no":
         try:
-            os.mkdir(gameDataPath)
+            os.mkdir(defaultPath)
         except:
             print("Failed to make the UO dir")
 
         try:
-            os.mkdir(f"{gameDataPath}/lang")
+            os.mkdir(f"{defaultPath}/lang")
         except:
             print("failed to make the lang dir")
         
         # need to change this so that I download it off of github some how?
         try:
-            with open(f"{gameDataPath}/settings.toml", "w") as f:
-                tomlFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{gameDataPath}/lang/'"""
-                f.write(tomlFile)
-                print("made settings")
-            with open(f"{gameDataPath}/lang/en_us.json", "w") as f:
-                jsonFile = """{\n\t"attribute.luck": "Luck",\n\t"attribute.health": "Health",\n\t"entity.player.name.default": "Matthew"\n}"""
-                f.write(jsonFile)
-                print("made lang")
+            # make somthing here plz
+            import ziperGetter
+            
+            ziperGetter.download_and_unzip()
+
+
+
             import readSettings, langHanddler, attribute, Entity
+            reader = readSettings.Reader()
         except:
             print("FAILED")
             print("Exiting")
@@ -52,7 +54,7 @@ except:
 
 
 
-reader = readSettings.Reader()
+
 
 try:
     langer = langHanddler.LangHanddler(reader=reader)
@@ -105,7 +107,7 @@ while gameTest:
         if imp == "0":
             pass
         elif imp == "1":
-            os.listdir(f"{gameDataPath}/saves")
+            os.listdir(f"{defaultPath}/saves")
         elif imp == "2":
             print("Can't name file's exit or quit else ya'll leave, and you don't type the extension.")
             imp = input("name> ")
