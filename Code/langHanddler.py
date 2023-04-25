@@ -12,7 +12,7 @@ class LangHanddler:
     """ 
     def __init__(self, reader: readSettings.Reader) -> None:
         self.reader = reader
-        with open(self.reader.getSetting('langLocation') + self.reader.getSetting("lang") + ".json", "r") as f:
+        with open(self.reader.getSetting('gameDataPath') + "/lang/" + self.reader.getSetting("lang") + ".json", "r") as f:
             self.langFile = json.loads(f.read())
 
     def getNameUsingId(self, nameId) -> str:

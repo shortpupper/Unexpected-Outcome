@@ -1,57 +1,63 @@
 import time, os
-import readSettings, langHanddler, attribute, Entity
 
 
-gameDataPath = "C:/UO/gameData"
+
+if __name__ == '__main__':
+    print('<<<----... Running test setup.py Test ...---->>>')
+    
+    
+    print("Yellow?")
+
+    # import dataIsMe
+    # dataIsMe.notNewUser()
+
+    print('<<<----...   End test setup.py Test   ...---->>>')
+
+
 
 
 ### file setup
-produntionBuild = True if __name__ != "__main__" or True else False
-try:
-    reader = readSettings.Reader()
-except:
-    print("Couldn't find file, install mode.\n\n")
-    # setup the files
-    print("Will break/won't load if you don't make the game data")
-    imp1 = input("Make Game (Y/no)> ")
-    if imp1.lower() != "no":
-        try:
-            os.mkdir(gameDataPath)
-        except:
-            print("Failed to make the UO dir")
 
-        try:
-            os.mkdir(f"{gameDataPath}/lang")
-        except:
-            print("failed to make the lang dir")
+
+if __name__ == '__main__':
+    print('<<<----... Running set Test ...---->>>')
         
-        # need to change this so that I download it off of github some how?
-        try:
-            with open(f"{gameDataPath}/settings.toml", "w") as f:
-                tomlFile = f"""# this is more for testting you dont need to change this\ntestString = "yes it is test"\n# save = ""\n\n# lang so you could make you're own if you wanted\nlang = "en_us"\nlangLocation = '{gameDataPath}/lang/'"""
-                f.write(tomlFile)
-            with open(f"{gameDataPath}/lang/en_us.json", "w") as f:
-                jsonFile = """{\n\t"attribute.luck": "Luck",\n\t"attribute.health": "Health",\n\t"entity.player.name.default": "Matthew"\n}"""
-                f.write(jsonFile)
-        except:
-            print("FAILED")
-            print("Exiting")
-            time.sleep(3)
-            exit()
+    defaultPath         = "C:/UO"
+    defaultGameDataPath = defaultPath + "/gameData" 
+    # this is now fed cus i need it to install as a package type thing
+    import newUser
+
+    try:
+        print("[START] try")
+        import dataIsMe
+        dataIsMe.notNewUser()
+        newUser.NEW_NOW(defaultGameDataPath=defaultGameDataPath,
+                         defaultPath=defaultPath,
+                           gameDataZipURL=dataIsMe.gameDataZipURL,
+                            withFILES=False)
+        
+        print("[FINAL SETUP] Your good to go")
+    except:
+        print("[START] except")
+        import dataIsMe
+        newUser.NEW_NOW(defaultGameDataPath=defaultGameDataPath,
+                         defaultPath=defaultPath,
+                           gameDataZipURL=dataIsMe.gameDataZipURL,
+                           withFILES=True)
+        
+        print("[FINAL SETUP] Should be setup")
+    
+    print('<<<----...   End set Test   ...---->>>')
 
 
 
 
-reader = readSettings.Reader()
 
-try:
-    langer = langHanddler.LangHanddler(reader=reader)
-except:
-    print("langer [FAILED]")
 
-player = Entity.Entity("id_A")
 
-player.add_attribute(attribute.Luck(1, 1))
+# player = Entity.Entity("id_A")
+
+# player.add_attribute(attribute.Luck(1, 1))
 
 # print(str(player.__dict__))
 # print(player.Luck)
@@ -60,13 +66,11 @@ player.add_attribute(attribute.Luck(1, 1))
 
 
 
-
-
 # gmae loop
 
-gameTest = True
 
-while gameTest:
+"""
+while dataIsMe.gameTest:
     print("\n\n0) Exit/Quit, 1) self Harm, 2) check Health, 3) roll die, 4) set luck")
     imp = input("what to Do?> ")
     if imp == "exit" or imp == "0":
@@ -95,7 +99,7 @@ while gameTest:
         if imp == "0":
             pass
         elif imp == "1":
-            os.listdir(f"{gameDataPath}/saves")
+            os.listdir(f"{defaultGameDataPath}/saves")
         elif imp == "2":
             print("Can't name file's exit or quit else ya'll leave, and you don't type the extension.")
             imp = input("name> ")
@@ -108,3 +112,11 @@ while gameTest:
             print("Are ya sure ya not speakin latin, eh?")
     else:
         print("Are you speaking frence??")
+"""
+
+
+
+if __name__ == '__main__':
+    print('<<<----... Running setup.py Test ...---->>>')
+
+    print('<<<----...   End setup.py Test   ...---->>>')
