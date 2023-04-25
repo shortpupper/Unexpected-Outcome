@@ -4,18 +4,24 @@ import time, os
 
 
 ### file setup
-produntionBuild = True if __name__ != "__main__" or True else False
+produntionBuild     = True if __name__ != "__main__" or True else False
 
+defaultPath         = "C:/UO"
+defaultGameDataPath = defaultPath + "/gameData" 
 
-defaultPath = "C:/UO/gameData" 
-
+gameDataZipURL      = "https://github.com/shortpupper/Unexpected-Outcome/blob/main-patch-home-1/gameData.zip"
 
 
 # this is now fed cus i need it to install as a package type thing
 try:
     import readSettings, langHanddler, attribute, Entity
-    reader      = readSettings.Reader()
-    defaultPath = reader.getSetting("gameDataPath")
+
+    # READER
+    reader              = readSettings.Reader()
+
+
+    defaultPath         = reader.getSetting("defaultPath")
+    defaultGameDataPath = reader.getSetting("gameDataPath")
     # if NewFile: raise Exception("makeing new")
 except:
     print("Couldn't find file, install mode.\n\n")
@@ -24,12 +30,12 @@ except:
     imp1 = input("Make Game (Y/no)> ")
     if imp1.lower() != "no":
         try:
-            os.mkdir(defaultPath)
+            os.mkdir(defaultGameDataPath)
         except:
             print("Failed to make the UO dir")
 
         try:
-            os.mkdir(f"{defaultPath}/lang")
+            os.mkdir(f"{defaultGameDataPath}/lang")
         except:
             print("failed to make the lang dir")
         
@@ -38,8 +44,7 @@ except:
             # make somthing here plz
             import ziperGetter
             
-            ziperGetter.download_and_unzip()
-
+            ziperGetter.download_and_unzip(gameDataZipURL, defaultPath)
 
 
             import readSettings, langHanddler, attribute, Entity
@@ -57,6 +62,7 @@ except:
 
 
 try:
+    # LANGER
     langer = langHanddler.LangHanddler(reader=reader)
 except:
     print("langer [FAILED]")
@@ -70,7 +76,10 @@ player.add_attribute(attribute.Luck(1, 1))
 
 
 
-
+if __name__ == '__main__':
+    print('<<<----... Running test setup.py Test ...---->>>')
+    print("Yellow?")
+    print('<<<----...   End test setup.py Test   ...---->>>')
 
 
 
@@ -107,7 +116,7 @@ while gameTest:
         if imp == "0":
             pass
         elif imp == "1":
-            os.listdir(f"{defaultPath}/saves")
+            os.listdir(f"{defaultGameDataPath}/saves")
         elif imp == "2":
             print("Can't name file's exit or quit else ya'll leave, and you don't type the extension.")
             imp = input("name> ")

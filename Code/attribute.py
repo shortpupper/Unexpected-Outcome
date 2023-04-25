@@ -1,17 +1,18 @@
-import random, langHanddler, readSettings
+import random, setup
 
 class GameAttribute:
     """
     Attribute template for things will be used in mods when I Get that far
     Right now not much is made, Just skeletons
     """
-    def __init__(self, GameID: str, Reader: readSettings.Reader(), Langer: langHanddler.LangHanddler(), *args) -> None:
-        self.GameId = GameID
+    def __init__(self, GameID: str, *args) -> None:
+        self.GameId       = GameID
 
-        self.Args = args
+        self.Args         = args
         # this should be improved
-        self.reader = readSettings.Reader()
-        self.langHanddler = langHanddler.LangHanddler(self.reader)
+        # ^^^^^^^^^^^^^^^^^^^^^^^ - I did kind of i think
+        self.reader       = setup.reader
+        self.langHanddler = setup.langer
     
     def GetId(self) -> str:
         return self.GameId
