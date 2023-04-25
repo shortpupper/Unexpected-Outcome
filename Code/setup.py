@@ -2,92 +2,75 @@ import time, os
 
 
 
+if __name__ == '__main__':
+    print('<<<----... Running test setup.py Test ...---->>>')
+    
+    
+    print("Yellow?")
+
+    # import dataIsMe
+    # dataIsMe.notNewUser()
+
+    print('<<<----...   End test setup.py Test   ...---->>>')
+
+
+
 
 ### file setup
-produntionBuild     = True if __name__ != "__main__" or True else False
-
-defaultPath         = "C:/UO"
-defaultGameDataPath = defaultPath + "/gameData" 
-
-gameDataZipURL      = "https://github.com/shortpupper/Unexpected-Outcome/blob/main-patch-home-1/gameData.zip"
 
 
-# this is now fed cus i need it to install as a package type thing
-try:
-    import readSettings, langHanddler, attribute, Entity
-
-    # READER
-    reader              = readSettings.Reader()
-
-
-    defaultPath         = reader.getSetting("defaultPath")
-    defaultGameDataPath = reader.getSetting("gameDataPath")
-    # if NewFile: raise Exception("makeing new")
-except:
-    print("Couldn't find file, install mode.\n\n")
-    # setup the files
-    print("Will break/won't load if you don't make the game data")
-    imp1 = input("Make Game (Y/no)> ")
-    if imp1.lower() != "no":
-        try:
-            os.mkdir(defaultGameDataPath)
-        except:
-            print("Failed to make the UO dir")
-
-        try:
-            os.mkdir(f"{defaultGameDataPath}/lang")
-        except:
-            print("failed to make the lang dir")
+if __name__ == '__main__':
+    print('<<<----... Running set Test ...---->>>')
         
-        # need to change this so that I download it off of github some how?
-        try:
-            # make somthing here plz
-            import ziperGetter
-            
-            ziperGetter.download_and_unzip(gameDataZipURL, defaultPath)
+    defaultPath         = "C:/UO"
+    defaultGameDataPath = defaultPath + "/gameData" 
+    # this is now fed cus i need it to install as a package type thing
+    import newUser
 
-
-            import readSettings, langHanddler, attribute, Entity
-            reader = readSettings.Reader()
-        except:
-            print("FAILED")
-            print("Exiting")
-            time.sleep(3)
-            exit()
+    try:
+        print("[START] try")
+        import dataIsMe
+        dataIsMe.notNewUser()
+        newUser.NEW_NOW(defaultGameDataPath=defaultGameDataPath,
+                         defaultPath=defaultPath,
+                           gameDataZipURL=dataIsMe.gameDataZipURL,
+                            withFILES=False)
+        
+        print("[FINAL SETUP] Your good to go")
+    except:
+        print("[START] except")
+        import dataIsMe
+        newUser.NEW_NOW(defaultGameDataPath=defaultGameDataPath,
+                         defaultPath=defaultPath,
+                           gameDataZipURL=dataIsMe.gameDataZipURL,
+                           withFILES=True)
+        
+        print("[FINAL SETUP] Should be setup")
     
+    print('<<<----...   End set Test   ...---->>>')
 
 
 
 
 
 
-try:
-    # LANGER
-    langer = langHanddler.LangHanddler(reader=reader)
-except:
-    print("langer [FAILED]")
 
-player = Entity.Entity("id_A")
+# player = Entity.Entity("id_A")
 
-player.add_attribute(attribute.Luck(1, 1))
+# player.add_attribute(attribute.Luck(1, 1))
 
 # print(str(player.__dict__))
 # print(player.Luck)
 
 
 
-if __name__ == '__main__':
-    print('<<<----... Running test setup.py Test ...---->>>')
-    print("Yellow?")
-    print('<<<----...   End test setup.py Test   ...---->>>')
-
 
 
 # gmae loop
 
-gameTest = False
 
-while gameTest:
+"""
+while dataIsMe.gameTest:
     print("\n\n0) Exit/Quit, 1) self Harm, 2) check Health, 3) roll die, 4) set luck")
     imp = input("what to Do?> ")
     if imp == "exit" or imp == "0":
@@ -129,12 +112,11 @@ while gameTest:
             print("Are ya sure ya not speakin latin, eh?")
     else:
         print("Are you speaking frence??")
+"""
 
 
 
 if __name__ == '__main__':
     print('<<<----... Running setup.py Test ...---->>>')
-    
-    print(str(__dict__))
 
     print('<<<----...   End setup.py Test   ...---->>>')
