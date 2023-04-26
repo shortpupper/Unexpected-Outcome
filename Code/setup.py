@@ -26,6 +26,7 @@ if __name__ == '__main__':
     defaultGameDataPath = defaultPath + "/gameData" 
     # this is now fed cus i need it to install as a package type thing
     import newUser
+    # import 
 
     try:
         print("[START] try")
@@ -67,7 +68,7 @@ try:
 except:
     print("[24] The play didn't load which me that you are franced")
 
-
+# make game work says kadden
 
 
 # gmae loop
