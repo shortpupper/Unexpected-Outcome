@@ -69,7 +69,7 @@ if __name__ == '__main__':
 # gmae loop
 
 
-"""
+
 while dataIsMe.gameTest:
     print("\n\n0) Exit/Quit, 1) self Harm, 2) check Health, 3) roll die, 4) set luck")
     imp = input("what to Do?> ")
@@ -101,7 +101,7 @@ while dataIsMe.gameTest:
         elif imp == "1":
             os.listdir(f"{defaultGameDataPath}/saves")
         elif imp == "2":
-            print("Can't name file's exit or quit else ya'll leave, and you don't type the extension.")
+            print("Can't name file's 'exit' or 'quit' else ya'll leave, and you don't type the extension.")
             imp = input("name> ")
             if imp.lower() in ["exit", "quit"]:
                 pass
@@ -112,7 +112,6 @@ while dataIsMe.gameTest:
             print("Are ya sure ya not speakin latin, eh?")
     else:
         print("Are you speaking frence??")
-"""
 
 
 
