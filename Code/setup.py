@@ -50,17 +50,20 @@ if __name__ == '__main__':
     print('<<<----...   End set Test   ...---->>>')
 
 
+try:
+    dataIsMe.notNewUser()
+except:
+    print("[21][FAILED] Not New User dataIsMe, this might brake rolling dice")
 
 
 
 
+player = Entity.Entity("id_A")
 
-# player = Entity.Entity("id_A")
+player.add_attribute(attribute.Luck(1, 1))
 
-# player.add_attribute(attribute.Luck(1, 1))
-
-# print(str(player.__dict__))
-# print(player.Luck)
+print(f"[22] {str(player.__dict__)}")
+print(f"[23] {player.Luck}")
 
 
 
@@ -69,7 +72,7 @@ if __name__ == '__main__':
 # gmae loop
 
 
-"""
+
 while dataIsMe.gameTest:
     print("\n\n0) Exit/Quit, 1) self Harm, 2) check Health, 3) roll die, 4) set luck")
     imp = input("what to Do?> ")
@@ -101,7 +104,7 @@ while dataIsMe.gameTest:
         elif imp == "1":
             os.listdir(f"{defaultGameDataPath}/saves")
         elif imp == "2":
-            print("Can't name file's exit or quit else ya'll leave, and you don't type the extension.")
+            print("Can't name file's 'exit' or 'quit' else ya'll leave, and you don't type the extension.")
             imp = input("name> ")
             if imp.lower() in ["exit", "quit"]:
                 pass
@@ -112,7 +115,7 @@ while dataIsMe.gameTest:
             print("Are ya sure ya not speakin latin, eh?")
     else:
         print("Are you speaking frence??")
-"""
+
 
 
 
