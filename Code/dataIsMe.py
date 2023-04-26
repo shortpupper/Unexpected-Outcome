@@ -6,7 +6,7 @@ gameDataZipURL      = "https://github.com/shortpupper/Unexpected-Outcome/raw/mai
 
 
 
-gameTest = False
+gameTest: bool = True
 
 
 
