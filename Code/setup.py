@@ -57,14 +57,15 @@ except:
 
 
 
+try:
+    player = Entity.Entity("id_A")
 
-player = Entity.Entity("id_A")
+    player.add_attribute(attribute.Luck(1, 1))
 
-player.add_attribute(attribute.Luck(1, 1))
-
-print(f"[22] {str(player.__dict__)}")
-print(f"[23] {player.Luck}")
-
+    print(f"[22] {str(player.__dict__)}")
+    print(f"[23] {player.Luck}")
+except:
+    print("[24] The play didn't load which me that you are franced")
 
 
 
