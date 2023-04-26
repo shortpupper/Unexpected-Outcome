@@ -26,6 +26,7 @@ if __name__ == '__main__':
     defaultGameDataPath = defaultPath + "/gameData" 
     # this is now fed cus i need it to install as a package type thing
     import newUser
+    # import 
 
     try:
         print("[START] try")
@@ -50,20 +51,24 @@ if __name__ == '__main__':
     print('<<<----...   End set Test   ...---->>>')
 
 
+try:
+    dataIsMe.notNewUser()
+except:
+    print("[21][FAILED] Not New User dataIsMe, this might brake rolling dice")
 
 
 
+try:
+    player = Entity.Entity("id_A")
 
+    player.add_attribute(attribute.Luck(1, 1))
 
-# player = Entity.Entity("id_A")
+    print(f"[22] {str(player.__dict__)}")
+    print(f"[23] {player.Luck}")
+except:
+    print("[24] The play didn't load which me that you are franced")
 
-# player.add_attribute(attribute.Luck(1, 1))
-
-# print(str(player.__dict__))
-# print(player.Luck)
-
-
-
+# make game work says kadden
 
 
 # gmae loop

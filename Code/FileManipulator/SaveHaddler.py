@@ -15,3 +15,12 @@ class SaveAndLoadHaddler():
         with open(f"{self.Directory}/{self.fileName}.gameSave", "r") as f:
             pass
 
+class TesterSave():
+    def __init__(self) -> None:
+        pass
+    
+    def testFunction(self):
+        return "Test ran."
+
+
+

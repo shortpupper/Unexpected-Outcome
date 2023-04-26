@@ -101,6 +101,12 @@ def NEW_NOW(defaultGameDataPath, gameDataZipURL, defaultPath, withFILES: bool):
             time.sleep(3)
             exit()
 
+class TesterSaves():
+    def __init__(self) -> None:
+        pass
+    
+    def testFunction(self):
+        return "Test ran."
 
 
 

@@ -1,4 +1,4 @@
-import random, setup
+import random, dataIsMe
 
 class GameAttribute:
     """
@@ -11,8 +11,8 @@ class GameAttribute:
         self.Args         = args
         # this should be improved
         # ^^^^^^^^^^^^^^^^^^^^^^^ - I did kind of i think
-        self.reader       = setup.reader
-        self.langHanddler = setup.langer
+        self.reader       = dataIsMe.reader
+        self.langHanddler = dataIsMe.langer
     
     def GetId(self) -> str:
         return self.GameId

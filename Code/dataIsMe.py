@@ -1,5 +1,3 @@
-
-
 # this might be f-ed cus what
 produntionBuild     = True if __name__ != "__main__" or True else False
 
